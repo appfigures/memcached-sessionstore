@@ -4,8 +4,8 @@ Out of the box .NET sessions are stored on the web server in memory, which is pe
 
 The alternatives:
 
-1. Use a database - Regardless of which database camp you're on, using it for this purpose is wxtremely inefficient and should not be deployed in any production environment.
-2. L7 load balance - Not extremely, but also inefficient. Requires special hardware. Prevents continuos balancing for a single user.
+1. Use a database - Regardless of which database camp you're on, using it for this purpose is extremely inefficient and should not be deployed in any production environment.
+2. L7 load balance - Not extremely, but also inefficient. Requires special hardware. Prevents continuous balancing for a single user.
 
 [Memcached](http://memcached.org/) is an open-source distributed memory caching system that fits the bill perfectly:
 - It's lightweight
@@ -61,4 +61,4 @@ That's it. Your sessions should now be stored in Memcached.
 # Warnings
 
 * Memcached was/is not really meant to run on Windows. While there are ways to set it up none are recommended for production environments. __Run your Memcached on Linux!__.
-* Memcached stores everything in memory which means a restart of the daemon or the server will result in the loss of all sessions. __If your application can't sustain such loss you'll need to find a more presistent place to store your sessions!__
+* Memcached stores everything in memory which means a restart of the daemon or the server will result in the loss of all sessions. __If your application can't sustain such loss you'll need to find a more persistent place to store your sessions!__
